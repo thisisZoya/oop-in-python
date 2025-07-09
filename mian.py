@@ -13,6 +13,9 @@ p1 = Product("1", "product1")
 p2 = Product("2", "product2", 100)
 p3 = Product("3", "product3", 100, "description3")
 
+for p in Product.product_list:
+    print(p) 
+
 c3 = Customer(email="user3@example.com", fullname="John Deo", password="123456", username="user3")
 
 r1 = Reseller(
@@ -25,3 +28,6 @@ print(type(r1), type(c3))
 P2 = Product(2, "Product2", 100, reseller=r1)
 print(p2, p2.reseller.check_password(123)) 
 print(type(p2), type(p2.reseller))
+
+u2 = User.create("reseller2", "265", "reseller", "reseller@gmail.com")
+User.validate_password("265")

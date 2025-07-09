@@ -4,8 +4,28 @@ class User:
         self.password = password
         self.fullname = fullname
         self.email = email
+
     def check_password(self, password):
         self.password = password
+
+    @classmethod    # class method is a method that is bound to the class and not the instance of the class. 
+                    # it need cls as a parameter.
+                    # it dose not initiate any instance or class variable.
+    def create(cls,username, password, fullname, email):
+        cls.validate_password(password)
+        return cls(username, password, fullname, email)
+
+    @staticmethod   # static method is a method that is not bound to the class or instance of the class.
+                    # it dose not need self or cls as a parameter.
+                    # it dose not initiate any instance or class variable.
+    def  validate_password(password):
+        if len(password) < 3:
+            print("password is too short")
+            return False
+        return True
+
+    def __str__(self):
+        return self.username
 
 class Customer(User):
     conter = 0 #class variable
@@ -19,6 +39,10 @@ class Customer(User):
 
     def set_enable(self, is_enable):
         self.set_enable = True
+
+    @property
+    def wallet(self):   # convert method to attribute.  
+        return self.wallet_amount
         
 class Reseller(User):
     def __init__(self, brand, log, *args, **kwargs):
@@ -29,7 +53,7 @@ class Reseller(User):
         
 
 class Product:
-    product_list = list()
+    product_list = list()  # class varible 
     
     def __init__(self, upc, name, price=0, description='', reseller=None):
         self.upc = upc
