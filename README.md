@@ -63,4 +63,67 @@ print(product1)
 
 # Access the property
 # customer1 = Customer(...)
-# print(customer1.wallet)
+# print(customer1.wallet
+
+# Python Employee Class
+
+A simple Python script that defines an `Employee` class to demonstrate key Object-Oriented Programming (OOP) concepts.
+
+## Features
+
+-   **Private Attributes:** Uses `__name` and `__salary` for encapsulation.
+-   **Class Attribute:** Tracks the total number of employees with `_total_employees`.
+-   **`@classmethod`:** A class method `get_total_employees()` to return the total employee count.
+-   **`@staticmethod`:** A static method `is_valid_salary()` to perform a utility check.
+-   **`__str__` Method:** Provides a clean, readable string representation of employee objects.
+
+## How to Run
+
+1.  Ensure you have Python 3 installed.
+2.  Save the code as `employee.py`.
+3.  Run the script from your terminal:
+
+    ```bash
+    python employee.py
+    ```
+
+## Expected Output
+Employee Info: Name: Alice, Salary: 7500 Name: Bob, Salary: 4800
+Total Employees: 2
+
+---
+
+### English Git Commit Message
+
+Here are a few options for your commit message in English, following the Conventional Commits standard.
+
+#### Option 1: A Single, Comprehensive Commit
+
+This is the best option if you are committing all your changes at once.
+
+**Subject:**
+feat: Implement Employee class with core OOP concepts
+
+
+**Body:**
+This commit introduces the Employee class, which demonstrates several key object-oriented programming principles.
+
+Defines the class with private attributes for name and salary.
+
+Adds a class method to track the total number of employees.
+
+Adds a static method for salary validation logic.
+
+Implements the str method for a user-friendly object representation.
+
+Includes a README.md file with setup and usage instructions.
+
+
+#### Option 2: A Simpler, Subject-Only Commit
+
+If you prefer a shorter message without a detailed body.
+
+feat: Add Employee class demonstrating OOP principles
+
+
+I recommend **Option 1** as it provides a clear and complete history of the changes you made.
