@@ -1,65 +1,66 @@
 # oop-in-python
+# 🐍 Practice Project: Exploring OOP Concepts in Python
 
-این پروژه یک تمرین عملی برای یادگیری و پیاده‌سازی مفاهیم اصلی برنامه‌نویسی شیءگرا (OOP) در زبان پایتون است. در این کد، ساختارهای پایه‌ای برای مدیریت کاربران و محصولات در یک سیستم فرضی ایجاد شده است.
+This project is a hands-on exercise for learning and implementing core Object-Oriented Programming (OOP) principles in Python. The code establishes a basic structure for managing users and products in a hypothetical system.
 
 ---
 
-## 🎯 مفاهیم اصلی پیاده‌سازی شده
+## 🎯 Core Concepts Implemented
 
-این پروژه مفاهیم کلیدی زیر را پوشش می‌دهد:
+This project covers the following key concepts:
 
-* **کلاس و شیء (Class & Object):**
-    پایه و اساس برنامه با تعریف کلاس‌هایی مانند `User`, `Customer`, `Reseller` و `Product` شکل گرفته است که می‌توان از روی آن‌ها اشیاء مختلف ساخت.
+* **Class & Object:**
+    The foundation of the program is built by defining classes like `User`, `Customer`, `Reseller`, and `Product`, from which different objects can be created.
 
-* **وراثت (Inheritance):**
-    کلاس‌های `Customer` و `Reseller` از کلاس `User` ارث‌بری می‌کنند و تمام ویژگی‌ها و متدهای آن را به ارث می‌برند. این کار از تکرار کد جلوگیری می‌کند.
+* **Inheritance:**
+    The `Customer` and `Reseller` classes inherit from the `User` class, gaining all of its attributes and methods. This prevents code duplication.
     ```python
     class Customer(User):
         pass
     ```
 
-* **بازنویسی متد (Method Overriding):**
-    کلاس `Reseller` متد `check_password` را از کلاس والد خود بازنویسی کرده و رفتار آن را تغییر داده است.
+* **Method Overriding:**
+    The `Reseller` class overrides the `check_password` method from its parent class, changing its behavior.
 
-* **متد سازنده (`__init__`) و `super()`:**
-    هر کلاس دارای یک متد `__init__` برای مقداردهی اولیه به ویژگی‌های شیء است. از تابع `super()` برای فراخوانی سازنده کلاس والد در کلاس‌های فرزند استفاده شده است.
+* **Constructor (`__init__`) & `super()`:**
+    Each class has an `__init__` method to initialize an object's attributes. The `super()` function is used to call the parent class's constructor from within a child class.
 
-* **متغیرهای کلاس (Class Variables):**
-    از متغیرهای کلاس برای اشتراک داده بین تمام نمونه‌های یک کلاس استفاده شده است؛ مانند `product_list` در کلاس `Product` که لیستی از تمام محصولات ساخته شده را نگهداری می‌کند.
+* **Class Variables:**
+    Class variables are used to share data among all instances of a class, such as `product_list` in the `Product` class, which keeps a list of all created products.
 
-* **متد کلاس (`@classmethod`):**
-    در کلاس `User`، از دکوراتور `@classmethod` برای ساختن متد `create` استفاده شده است. این متد به خود کلاس دسترسی دارد (نه به یک نمونه خاص) و می‌تواند قبل از ساختن شیء، عملیاتی مانند اعتبارسنجی را انجام دهد.
+* **`@classmethod`:**
+    In the `User` class, the `@classmethod` decorator is used to create the `create` method. This method has access to the class itself (not a specific instance) and can perform operations like validation before creating an object.
 
-* **متد استاتیک (`@staticmethod`):**
-    متد `validate_password` در کلاس `User` به صورت استاتیک تعریف شده است. این متد یک تابع کاربردی است که به کلاس یا نمونه‌های آن وابستگی ندارد اما به دلیل ارتباط منطقی، درون کلاس قرار گرفته است.
+* **`@staticmethod`:**
+    The `validate_password` method in the `User` class is defined as a static method. It's a utility function that doesn't depend on the class or its instances but is placed inside the class for logical grouping.
 
-* **پراپرتی (`@property`):**
-    در کلاس `Customer`، از دکوراتور `@property` برای متد `wallet` استفاده شده است. این کار به ما اجازه می‌دهد که این متد را مانند یک ویژگی معمولی (بدون پرانتز) فراخوانی کنیم و خوانایی کد را بالا ببریم.
+* **`@property`:**
+    In the `Customer` class, the `@property` decorator is used for the `wallet` method. This allows us to access the method as if it were a regular attribute (without parentheses), improving code readability.
     ```python
-    # به جای customer1.wallet() می‌نویسیم
+    # Instead of customer1.wallet(), we write:
     print(customer1.wallet)
     ```
 
-* **متدهای خاص (Special Methods):**
-    از متد `__str__` برای تعریف یک نمایش رشته‌ای و خوانا از اشیاء استفاده شده است تا هنگام `print` کردن آن‌ها، خروجی معناداری نمایش داده شود.
+* **Special Methods:**
+    The `__str__` method is used to define a user-friendly string representation of objects, so they provide meaningful output when printed.
 
 ---
 
-## 🚀 نحوه استفاده
+## 🚀 How to Use
 
-این کد به عنوان یک ماژول طراحی شده است. می‌توانید کلاس‌ها را وارد (import) کرده و از آن‌ها نمونه‌سازی کنید:
+This code is designed as a module. You can import the classes and instantiate them:
 
 ```python
-# ایجاد یک کاربر جدید با استفاده از classmethod
+# Create a new user with the classmethod
 user1 = User.create('zoya', 'pass123', 'Zoya Hussain', 'zoya@example.com')
 
-# ایجاد یک محصول
+# Create a product
 product1 = Product(upc="12345", name="Laptop", price=1200)
 
-# نمایش اطلاعات
+# Display information
 print(user1)
 print(product1)
 
-# دسترسی به پراپرتی
+# Access the property
 # customer1 = Customer(...)
 # print(customer1.wallet)
